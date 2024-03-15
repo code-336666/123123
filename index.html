@@ -7,46 +7,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- 引入Montserrat字體 -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,286;1,286&display=swap" rel="stylesheet">
-    <style>
-        /* 定義側邊欄樣式 */
-        body {
-             /* 使用線性漸變從上到下的背景色 */
-             background:#333333;
-                width: 100%; /* 寬度 */
-                height: 100%; /* 高度 */
-        }
+   <style>
+   /* 定義側邊欄樣式 */
+body {
+    /* 使用線性漸變從上到下的背景色 */
+    background: #333333;
+    width: 100%; /* 寬度 */
+    height: 100%; /* 高度 */
+    margin: 0; /* 取消body的預設外邊距 */
+    padding: 0; /* 取消body的預設內邊距 */
+    font-family: 'Arial', sans-serif; /* 更改全局字體 */
+    color: #ffffff; /* 更改全局文字顏色 */
+}
 
-        .main-content {
-            min-height: 100vh; /* 確保內容區域至少與視窗高度一樣高 */
-            /* 其他樣式 */
-        }
+.main-content {
+    min-height: 100vh; /* 確保內容區域至少與視窗高度一樣高 */
+    /* 其他樣式 */
+}
 
-        .sidebar-container {
-            position: fixed; /* 固定在頁面上 */
-            top: 0; /* 位於頁面頂部 */
-            left: -250px; /* 初始隱藏在左側 */
-            width: 250px; /* 寬度 */
-            height: 100%; /* 高度 */
-            background: linear-gradient(to right, #000000, #666666, #999999); /* 添加渐变背景 */
-            transition: left 0.5s; /* 添加過渡效果 */
-            z-index: 0; /* 將側邊欄層級設置為最低 */
-        }
+.sidebar-container {
+    position: fixed; /* 固定在頁面上 */
+    top: 0; /* 位於頁面頂部 */
+    left: -250px; /* 初始隱藏在左側 */
+    width: 250px; /* 寬度 */
+    height: 100%; /* 高度 */
+    background: #333333; /* 更改背景色 */
+    transition: left 0.5s; /* 添加過渡效果 */
+    z-index: 1; /* 將側邊欄層級設置為更高 */
+    padding-top: 50px; /* 增加頂部內邊距，以避免與頁首重疊 */
+}
 
-        /* 樣式化側邊欄連結 */
-        .sidebar a {
-            display: block; /* 塊級元素 */
-            padding: 10px 0; /* 上下內邊距 */
-            text-decoration: none; /* 移除下劃線 */
-            color: rgba(56, 54, 54, 0.945); /* 文字顏色 */
-            transition: background-color 0.3s; /* 添加過渡效果 */
-            margin-top: 200px; /* 向下移動200像素 */
-            font-family: Montserrat; /* 將字體轉換為Montserrat */
-        }
+/* 樣式化側邊欄連結 */
+.sidebar a {
+    display: block; /* 塊級元素 */
+    padding: 10px 20px; /* 上下內邊距 */
+    text-decoration: none; /* 移除下劃線 */
+    color: rgba(255, 255, 255, 0.8); /* 文字顏色 */
+    transition: background-color 0.3s; /* 添加過渡效果 */
+}
 
-        /* 滑鼠懸停時改變連結背景顏色 */
-        .sidebar a:hover {
-            background-color: #ddd; /* 改變背景顏色 */
-        }
+/* 滑鼠懸停時改變連結背景顏色 */
+.sidebar a:hover {
+    background-color: #555555; /* 改變背景顏色 */
+}
+
 
         /* 定義標題樣式 */
         h1 {
@@ -60,12 +64,24 @@
             background: linear-gradient(to right, #ff7e5f, #feb47b, #ffeda3); /* 添加渐变背景 */
             -webkit-background-clip: text; /* 将背景限制为文字内容 */
             background-clip: text;
-}
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif; /* 字体 */
+            text-align: center; /* 居中 */
+            color: transparent; /* 文字颜色设置为透明 */
+            cursor: pointer; /* 鼠标指针样式 */
+            transition: transform 0.3s; /* 添加过渡效果 */
+            z-index: 1; /* 设置层级 */
+            margin-left: -230px; /* 向左移动230像素 */
+            background: #666666; /* 設置文字颜色*/
+            -webkit-background-clip: text; /* 将背景限制为文字内容 */
+            background-clip: text;
+        }
+
 
         /* 滑鼠懸停時標題的樣式 */
         h1:hover {
             transform: scale(1.1); /* 放大標題 */
-            color: f0f0f0;
         }
 
         /* 主要內容區域樣式 */
@@ -75,15 +91,25 @@
         }
 
         /* 設置段落樣式 */
-        p {
+        p{
             font-family: 'Montserrat', sans-serif; /* 字體 */
             text-align: center; /* 居中 */
-            color: #ECF0F1; /* 文字顏色 */
+            color: transparent; /* 文字颜色设置为透明 */
             transition: transform 0.3s; /* 添加過渡效果 */
             margin-left: -230px; /* 向左移动230像素 */
             font-size: 25px;
             font-weight: 800;
+            background: linear-gradient(to right, #FFD700, #FFA500, #FF6347, #FF4500, #FF0000);
+            -webkit-background-clip: text; /* 将背景限制为文字内容 */
+            background-clip: text;
         }
+        .small-text {
+                    font-size: 13px; /* 調整字體大小 */
+                    font-weight: normal; /* 如果需要，取消粗體 */
+                    color: #ECF0F1;
+                    /* 添加任何其他你想要的樣式 */
+        }
+
 
         /* 樣式化 logo */
         .logo {
@@ -96,20 +122,20 @@
 
         /* 頁首樣式 */
         header {
-            position: fixed; /* 固定在頁面上 */
-            top: 0; /* 位於頁面頂部 */
-            width: 100%; /* 寬度佔滿整個頁面 */
-            background-color: #2C3E50; /* 背景顏色 */
-            color: #ECF0F1; /* 文字顏色 */
-            padding: 5px; /* 內邊距 */
-            text-align: center; /* 文本居中 */
-            z-index: 2; /* 設置層級高於側邊欄 */
-            height: 50px;
-            margin-left: -20px; /* 將左方距離設置為0 */
-            font-family: 'Montserrat', sans-serif; /* 字體 */
-        }
+                position: fixed; /* 固定在頁面上 */
+                top: 0; /* 位於頁面頂部 */
+                width: 100%; /* 寬度佔滿整個頁面 */
+                background-color: #2C3E50; /* 背景顏色 */
+                color: #ECF0F1; /* 文字顏色 */
+                padding: 5px; /* 內邊距 */
+                text-align: center; /* 文本居中 */
+                z-index: 2; /* 設置層級高於側邊欄 */
+                height: 50px;
+                margin-left: -20px; /* 將左方距離設置為0 */
+                font-family: 'Montserrat', sans-serif; /* 字體 */
+}
 
-        /* 頁脚樣式 */
+       /* 頁脚樣式 */
         footer {
                 position: fixed; /* 固定在頁面上 */
                 bottom: 0; /* 位於頁面底部 */
@@ -117,7 +143,7 @@
                 background-color: #2C3E50; /* 背景顏色 */
                 color: #ECF0F1; /* 文字顏色 */
                 padding: 5px; /* 內邊距 */
-                text-align: left; /* 文本左對齊 */
+                text-align: center; /* 文本居中 */
                 font-family: 'Montserrat', sans-serif; /* 字體 */
                 z-index: 2; /* 設置層級高於側邊欄 */
                 margin-left: -20px; /* 向左移動20像素 */
@@ -169,8 +195,7 @@
 </head>
 <body>
     <!-- 頁首 -->
-    <header>
-        <h2>Welcome to FutureLeap</h2>
+    <header>    
     </header>
     
     <!-- 漢堡菜單 -->
@@ -197,12 +222,13 @@
         <!-- 主標題 -->
         <h1>Welcome to FutureLeap <br>We believe Each and every individual is capable of possessing better future</h1>
         <!-- 段落 -->
-        <p>Click menu to get more information</p>
+        <h2>Click menu to get more information</h2>
     </div>
 
     <!-- 頁脚 -->
     <footer>
-        <p>&copy; 2024 FutureLeap.</p>
+        <p>&copy; 2024 FutureLeap.<span class="small-text">If you are interesting, plase cometact us</span></p>
+
     </footer>
     
     <script>
